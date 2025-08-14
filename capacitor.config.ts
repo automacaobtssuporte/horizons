@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.horizons.app',
+  appId: 'br.com.userbrasil.USER-BRASIL',
   appName: 'acougue-lucrativo',
   webDir: 'dist'
 };
