@@ -1,0 +1,120 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%; /* Dark blue-gray */
+    --foreground: 0 0% 98%; /* Almost white */
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 30 80% 55%; /* Rich brown - "boi" color */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 20 70% 45%; /* Darker reddish-brown */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 15%; /* Darker gray for muted elements */
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 40 90% 60%; /* A contrasting gold/yellow accent */
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 70% 50%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 25%; /* Slightly lighter border for dark theme */
+    --input: 240 5% 25%;
+    --ring: 30 80% 55%; /* Primary brown for rings */
+    
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 0 0% 98%; /* Light gray for light theme */
+    --foreground: 240 10% 3.9%; /* Dark blue-gray text */
+    
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 30 70% 50%; /* Brown */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 60% 40%; /* Darker reddish-brown */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 94%; /* Light gray */
+    --muted-foreground: 240 5% 45%;
+
+    --accent: 40 80% 55%; /* Gold/yellow accent */
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 89.8%; /* Light gray border */
+    --input: 0 0% 89.8%;
+    --ring: 30 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', sans-serif; /* Using a clean sans-serif font */
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+  
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-md border border-border/50 rounded-xl shadow-lg;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/70 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
